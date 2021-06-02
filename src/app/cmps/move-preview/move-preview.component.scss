@@ -4,17 +4,22 @@
     padding-right: 2em;
     border-bottom: 1px solid #8d91973b;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    .to{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    .from{
         grid-column:1;
         text-align: start;
     }
-    .amount{
+    .to{
         grid-column:2;
+        text-align: start;
+        margin-left: 20px;
+    }
+    .amount{
+        grid-column:3;
         text-align: center;
     }
     .at{
-        grid-column:3;
+        grid-column:4;
         text-align: end;
     }
 }

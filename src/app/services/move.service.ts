@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { Move } from '../models/move.model';
 import { UserService } from './user.service';
+import {HttpParams} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +17,8 @@ export class MoveService {
 
   BASE_URL = 'http://localhost:3030/api/move/'//development - back
 
-
-  private _moves$ = new BehaviorSubject<Move[]>([])
-  public moves$ = this._moves$.asObservable()
-
-
+  private _userMoves$ = new BehaviorSubject<Move[]>([])
+  public userMoves$ = this._userMoves$.asObservable()
 
   private _filterBy$ = new BehaviorSubject({ term: '' })
   public filterBy$ = this._filterBy$.asObservable()
@@ -30,7 +28,46 @@ export class MoveService {
       .pipe(
         tap(() => console.log('fetched moves')),
         catchError(this._handleError<Move[]>('getUsers', []))
+        )
+      }
+      
+      
+  public getUserMoves(userId:string): Observable<Move[]> {
+    const options = {params: new HttpParams().set('userId', userId) };
+    return this.http.get<Move[]>(this.BASE_URL,options)
+      .pipe(
+        tap(() => console.log('fetched moves')),
+        catchError(this._handleError<Move[]>('getUsers', []))
       )
+  }
+
+  public updateUserMoves(userId){
+    this.getUserMoves(userId)
+    .subscribe((moves)=>{
+      this._userMoves$.next(moves)
+    })
+  }
+
+  public saveMove(move:Move) {
+    return move._id ? this._updateMove(move) : this._addMove(move)
+  }
+
+  private _updateMove(move:Move): Observable<any> {
+    const updatedMove = this.http.put<Move>(this.BASE_URL + move._id, move)
+      .pipe(
+        tap(() => console.log(`updated move id=${move._id}`)),
+        catchError(this._handleError<any>('updateMove')),
+      )
+    return updatedMove
+  }
+
+  private _addMove(move:Move): Observable<any> {
+    const newMove = this.http.post(this.BASE_URL, move)
+      .pipe(
+        tap(() => console.log(`new move added:`,move)),
+        catchError(this._handleError<any>('addMove')),
+      );
+    return newMove
   }
 
 

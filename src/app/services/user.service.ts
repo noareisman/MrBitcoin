@@ -18,7 +18,7 @@ export class UserService {
   constructor(
     private utilService: UtilService,
     private http: HttpClient,
-    private moveService:MoveService
+    private moveService: MoveService
   ) { }
 
   BASE_URL = 'http://localhost:3030/api/user/'//development - back
@@ -39,7 +39,7 @@ export class UserService {
   private _userMoves$ = new BehaviorSubject<Move[]>([])
   public userMoves$ = this._userMoves$.asObservable()
 
-  error=new Subject<string>()
+  error = new Subject<string>()
 
   defaultUserCredentials: Credentials = {
     username: 'Demo User',
@@ -69,14 +69,14 @@ export class UserService {
 
   updateUserContactList(contactList) {
     this.user.contactList = contactList
-    this._updateUser(this.user).subscribe(updatedUser=>{
-      this.user=updatedUser
+    this._updateUser(this.user).subscribe(updatedUser => {
+      this.user = updatedUser
       this._currUser$.next(this.user)//NEEDED????????
     })
   }
   // isUsernameValid(username){
-    //   return (!this.users.includes(username))
-    // }
+  //   return (!this.users.includes(username))
+  // }
 
   isValidEmail(control: FormControl): Promise<any> | Observable<any> {
     const promise = new Promise<any>((resolve, reject) => {
@@ -90,10 +90,10 @@ export class UserService {
     })
     return promise
   }
-  
+
   // signUp(username,password,fullname):string {
-    //   if (!this.isUsernameValid(username)) return "This username is already taken, try to register with another username"
-    //   const newUser:User = {
+  //   if (!this.isUsernameValid(username)) return "This username is already taken, try to register with another username"
+  //   const newUser:User = {
   //     username,
   //     password,
   //     fullname,
@@ -109,23 +109,12 @@ export class UserService {
   // }
 
 
-  updateUserBalance(contact, amount) {
-    // const move = {
-    //   toId: contact._id,
-    //   to: contact.name,
-    //   at: Date.now(),
-    //   amount,
-    // };
-    // this.user.moves.unshift(move)
-    if (amount > 0) {
-
-    }
-    if (amount < 0) {
-      
-    }
+  updateUserBalance(amount) {
     this.user.coins -= amount
-    this._currUser$.next(this.user)//NEEDED????????
-    this._updateUser(this.user)
+    this._updateUser(this.user).subscribe(updatedUser => {
+      this.user = updatedUser
+      this._currUser$.next(this.user)//NEEDED????????
+    })
   }
 
   public getUsers(): Observable<User[]> {
@@ -155,7 +144,7 @@ export class UserService {
       .subscribe((users) => {
         const filterBy = this._filterBy$.getValue()
         console.log(users);
-        
+
         // const filteredUsers = this._filter(users, filterBy.term)
         // this._users$.next(this._sort(filteredUsers))
         this._users$.next(users)
@@ -165,7 +154,7 @@ export class UserService {
   }
 
 
-  private _filter(users, term ='') {
+  private _filter(users, term = '') {
     term = term.toLocaleLowerCase()
     return users.filter(user => {
       return user.fullname.toLocaleLowerCase().includes(term)
@@ -194,10 +183,10 @@ export class UserService {
 
   private _updateUser(user: User): Observable<any> {
     const updatedUser = this.http.put<User>(this.BASE_URL + user._id, user)
-    .pipe(
-      tap(() => console.log(`updated user id=${user._id}`)),
-      catchError(this._handleError<any>('updateUser')),
-    )
+      .pipe(
+        tap(() => console.log(`updated user id=${user._id}`)),
+        catchError(this._handleError<any>('updateUser')),
+      )
     return updatedUser
   }
 

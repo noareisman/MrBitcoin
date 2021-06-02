@@ -50,12 +50,29 @@ export class ContactDetailsComponent implements OnInit {
     this.router.navigateByUrl('/main/user')
       
   }
+
+  
   animateTransfer() {
     this.contactImg = "../../assets/imgs/bitcoinGif.gif"
     setTimeout(() => {
       this.contactImg = 'https://i.pravatar.cc/150?u=' + this.contact._id
     }, 3020);
 
+  }
+
+  switchContact(diff){
+    const contactIdx=this.user.contactList.findIndex(contact=>this.contact._id===contact._id)
+    var moveToIdx=contactIdx+diff
+    console.log(moveToIdx);
+    if (moveToIdx>this.user.contactList.length-1) moveToIdx=0
+    console.log(moveToIdx);
+    if (moveToIdx<0) moveToIdx=this.user.contactList.length-1
+    console.log(moveToIdx);
+    console.log(this.user.contactList);
+    console.log(this.user.contactList[moveToIdx]);
+    
+    const contactId=this.user.contactList[moveToIdx]._id
+    this.router.navigateByUrl(`/main/contact/${contactId}`)
   }
 
   ngOnInit(): void {
@@ -93,12 +110,12 @@ export class ContactDetailsComponent implements OnInit {
     // })
 
     this.userSubscription = this.userService.currUser$.subscribe(user => this.user = user)
-    this.movesSubscription = this.moveService.moves$
-      .subscribe(moves => {
-        this.contactMoves = moves.filter((move) => {
-          (move.to._id === this.route.snapshot.params.id && move.from._id===this.user._id)||
-          (move.from._id === this.route.snapshot.params.id && move.to._id===this.user._id)
-        })
+    
+    this.moveService.updateUserMoves(this.user._id)
+    this.movesSubscription= this.moveService.userMoves$
+    .subscribe(moves=>{
+      this.contactMoves = moves.filter((move) => {
+        return (move.to._id === this.route.snapshot.params.id|| move.from._id === this.route.snapshot.params.id)})
       })
   }
 

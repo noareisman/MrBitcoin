@@ -6,6 +6,12 @@
         </div>
         <ng-template #moveList>
             <ul class="clean-list">
+                <li class="move-list-titles">
+                    <span class="from">From:</span> 
+                    <span class="to">To:</span> 
+                    <span class="amount"> Amount:</span> 
+                    <span class="at">At:</span> 
+                </li>
                 <li *ngFor="let move of moves; Index as idx; trackBy:trackByFn">
                     <move-preview [move]="move"></move-preview>
                 </li>
