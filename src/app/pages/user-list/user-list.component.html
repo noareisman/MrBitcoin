@@ -1,0 +1,9 @@
+<section class="main-layout user-list">
+<user-search></user-search>
+<ul class="user-list clean-list">
+    <li *ngFor="let user of users; Index as idx; trackBy:trackByFn">
+        <user-preview [user]="user"></user-preview>
+    </li>
+  </ul>
+
+</section>

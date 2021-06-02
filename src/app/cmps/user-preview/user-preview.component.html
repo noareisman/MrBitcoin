@@ -1,0 +1,14 @@
+<article class="user-preview flex">
+    <!-- <button *ngIf="!isInUserContacts; else alreadyContact">Add to Contacts</button> -->
+    <!-- <ng-template #alreadyContact>Contact</ng-template> -->
+    <img [src]="'https://i.pravatar.cc/150?u=' + user._id">
+    <div class="flex column space-between">
+        
+        <h2>{{user.fullname}}</h2>
+        <div>
+            <p>E-mail: {{user.email}}</p>
+            <p>Phone: {{user.phone}}</p>
+        </div>
+        <button class="add-contact-btn" (click)="addToContactList(user)">Add contact</button>    
+    </div>
+</article>

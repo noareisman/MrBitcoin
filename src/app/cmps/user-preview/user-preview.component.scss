@@ -1,0 +1,30 @@
+.user-preview{
+    padding:30px ;
+    border-radius: 10px;
+    // background-color: #96b0dd3b;
+    border: 1px solid #96b0dd3b;
+    width:500px;
+    margin-top: 20px;
+
+    img{
+        width:120px;
+        border-radius: 50%;
+        margin-right: 30px;
+        background-color:rgb(22,11,26);
+    }
+
+    h2{
+        margin-bottom: 10px;
+    }
+    
+    p{
+        font-size: 15px;
+    }
+    .add-contact-btn{
+        margin-top: 5px;
+        background-color: #96b0dd3b;
+        font-size: 12px;
+        font-weight: 200;
+        width: fit-content;
+    }
+    }

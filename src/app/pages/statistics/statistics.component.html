@@ -1,0 +1,26 @@
+<section class="statistics">
+    <h1>Statistics</h1>
+    <div class="chart-market-price-container">
+            <h3>Market Price</h3>
+            <div class="chart">
+                <div class="chart-wrapper">
+                    <canvas baseChart 
+                        [datasets]="lineChartData" 
+                        [labels]="lineChartLabels" 
+                        [options]="lineChartOptions"
+                        [colors]="lineChartColors" 
+                        [legend]="lineChartLegend" 
+                        [chartType]="lineChartType" 
+                        [plugins]="lineChartPlugins">
+                    </canvas>
+                </div>
+            <!-- <Chart data={this.priceForChart} /> -->
+        <!-- <h5>{marketPrice.description}</h5> -->
+    </div>
+    <div class="chart-transactions-container">
+            <!-- <Chart data={this.transactionsForChart} /> -->
+        </div>
+        <!-- <h5>{confirmedTransactions.description}</h5> -->
+    </div>
+
+</section>

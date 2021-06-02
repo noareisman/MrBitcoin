@@ -1,0 +1,31 @@
+<section>
+  <div class="flex center">
+    <p *ngIf="error">{{error}}</p>
+    <div class="details-container flex column align-center">
+      <div class="flex space-between">
+        <a routerLink="/main/user">X</a>
+        <span class="action-btns">
+          <a [routerLink]="['/main/edit',contactId]"><fa-icon [icon]="faEdit"></fa-icon></a>
+          <span (click)="onRemoveContact()"><fa-icon [icon]="faTrashAlt"></fa-icon></span>
+        </span>
+      </div>
+      <div class="contact-details flex column align-center">
+        <h1>{{contact.name}}</h1>
+        <!-- <h1>{{(contact$|async).name}}</h1> -->
+        <div class="flex align-center space-between w-full">
+          <button class="caroussel-arrow"><</button>
+          <img [src]="contactImg" alt="contact" />
+          <button class="caroussel-arrow">></button>
+        </div>
+        <div class="details flex column center">
+          <p>Email: {{contact.email}}</p>
+          <!-- <p>Email: {{(contact$|async).email}}</p> -->
+          <p>Phone: {{contact.phone}}</p>
+          <!-- <p>Phone: {{(contact|async).phone}}</p> -->
+        </div>
+      </div>
+      <transfer-fund [contact]="contact" (transferEvent)="animateTransfer()"></transfer-fund>
+      <move-list [moves]="contactMoves"></move-list>
+    </div>
+  </div>
+</section>

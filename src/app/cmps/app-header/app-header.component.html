@@ -1,0 +1,23 @@
+<section class="app-header flex space-between">
+    <!-- <a routerLink="/welcome" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"> -->
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <h1>Mister Bitcoin</h1>
+    </a>
+    <a routerLink="/users">Connect with other MrBitcoin members</a>
+    <nav>
+        <ul class="flex">
+            <li *ngIf="user">
+                <a routerLink="/main/user" routerLinkActive="active">{{user.fullname}}</a>
+            </li>
+            <li>
+                <a routerLink="/statistics" routerLinkActive="active">Statistics</a>
+            </li>
+            <li>
+                <a routerLink="/about" routerLinkActive="active">About</a>
+            </li>
+            <li>
+                <a routerLink="/login" routerLinkActive="active">Login</a>
+            </li>
+        </ul>   
+    </nav>
+</section>

@@ -1,0 +1,13 @@
+  <ul class="contact-list">
+    <li class="contact-filter">
+        <fa-icon class="fa-search" [icon]="faSearch"></fa-icon>
+        <contact-filter></contact-filter>
+    </li>
+    <li class="add-btn">
+        <a routerLink="/main/edit" class="flex align-center"><span class="plus-sign flex center">+</span><span>Add Contact</span></a>
+    </li>
+    <li *ngFor="let contact of contacts; Index as idx; trackBy:trackByFn">
+        <contact-preview [contact]="contact"></contact-preview>
+    </li>
+  </ul>
+

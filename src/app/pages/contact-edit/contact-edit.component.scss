@@ -1,0 +1,43 @@
+.contact-edit{
+    padding:2% ;
+    border-radius: 10px;
+    background-color: #96b0dd3b;
+    padding-bottom:40px;
+
+    .contact-details{
+
+        padding-top: 20px;
+
+        h1{
+            text-align: center;
+        }
+        .contact-img{
+            width:170px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            background-color: rgb(22,11,26);
+            height: 170px;
+        }
+        .add-user-icon{
+            font-size: 80px;
+            padding-left: 25px;
+        }      
+        
+        button{
+            margin-top: 20px;
+        }
+
+        input{
+            width:250px;
+            border-radius: 4px;
+            line-height: 2em;
+            margin-bottom: 8px;
+            appearance: none;
+            border-style: none;
+            padding-inline-start: 10px;
+        }
+    }
+}
+
+
+

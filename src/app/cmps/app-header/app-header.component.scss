@@ -1,0 +1,29 @@
+@import '../../../assets/styles/setup/variables';
+
+.app-header {
+    align-items: center;
+    padding: 14px 40px;
+    background-color: $clr1;
+    margin-bottom: 50px;
+    
+    h1 {
+      color: rgb(255, 196, 0);
+      margin-bottom:0px;
+      
+    }
+    ul {
+      margin-inline-start: 20px;
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      // width:295px;
+    }
+    li {
+      margin-inline-start: 25px;
+    }
+    .active {
+      font-weight: bold;
+      color: rgb(255, 196, 0);
+    }
+  }

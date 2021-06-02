@@ -1,0 +1,24 @@
+.move-preview{
+    line-height: 3em;
+    padding-left: 2em;
+    padding-right: 2em;
+    border-bottom: 1px solid #8d91973b;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    .to{
+        grid-column:1;
+        text-align: start;
+    }
+    .amount{
+        grid-column:2;
+        text-align: center;
+    }
+    .at{
+        grid-column:3;
+        text-align: end;
+    }
+}
+
+
+
+

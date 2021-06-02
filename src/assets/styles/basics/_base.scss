@@ -1,0 +1,88 @@
+@import '../setup/variables';
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Opensans;
+    // font-family: Montserrat;
+    line-height: 1.6;
+    color: $clr5;
+}
+
+body {
+    margin: 0;
+    background-color: $clr2;
+
+
+    &::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: linear-gradient(14deg, #abb0b2 14%, #505556 65%);
+        border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(13deg, #abb0b2cb 14%, #505556cc 64%);
+    }
+    &::-webkit-scrollbar-track {
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: inset 7px 6px 12px #f0f0f0;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    // font-family: roboto-regular;
+    // font-family: sofia-pro-regular;
+    font-family: Montserrat;
+    color: $clr5;
+    margin: 0 0 20px 0;
+    font-weight: 600;
+}
+
+
+
+img {
+    width: 100%;
+    object-fit: cover;
+}
+
+input {
+    font-family: roboto-regular;
+}
+
+a {
+    text-decoration: none;
+    color: $clr5;
+}
+
+p {
+    color: $clr5;
+    margin: 0 0 0 0;
+    font-size: 14px;
+}
+
+button {
+    color: $clr5;
+    cursor: pointer;
+    background:rgb(214, 143, 11);
+    appearance: none;
+    text-rendering: none;
+    font-family: roboto-regular;
+    font-size:1.1em;
+    border-width:none;
+    border-color: none;
+    border-style:none;
+    border-image:none;
+    border-radius: 4px;
+    padding:0.35em 1em;
+
+}

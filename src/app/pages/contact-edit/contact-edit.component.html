@@ -1,0 +1,34 @@
+<section class="contact-edit">
+    <div *ngIf="!contact._id; else Back">
+        <a routerLink="/main/user">&larr; Back</a>
+    </div>
+    <ng-template #Back>
+            <a [routerLink]="['/main/contact',contact._id]">&larr; Back</a>
+    </ng-template>
+    <div class="contact-details flex column align-center">
+        <div *ngIf="!contact._id; else contactEdit">
+                <h1>Add Contact</h1>
+                <div class="contact-img flex align-center center"><fa-icon class="add-user-icon" [icon]="faUserPlus"></fa-icon></div>
+        </div>
+        <ng-template #contactEdit>
+                <h1>Edit Contact</h1>
+                <img [src]="'https://i.pravatar.cc/150?u=' + contact._id" alt="contact" class="contact-img" />
+        </ng-template>
+        <!-- <form (submit)="onSaveContact()"> -->
+        <!-- <form (ngSubmit)="onSaveContact(editForm)" #editForm="ngForm"> -->
+        <form (submit)="onSaveContact(editForm)" #editForm="ngForm">
+            <section class="details flex column align-center">
+                <div>
+                    <input type="text" id="name" name="name" placeholder="Enter Name" [(ngModel)]="contact.name" />
+                </div>
+                <div>
+                    <input type="text" id="email" name="email" placeholder="Enter Email" [(ngModel)]="contact.email" />
+                </div>
+                <div>
+                    <input type="text" id="phone" name="phone" placeholder="Enter Phone" [(ngModel)]="contact.phone" />
+                </div>
+                <button type="submit">Save Contact</button>
+            </section>
+        </form>
+    </div>
+</section>

@@ -1,0 +1,46 @@
+.main-layout {
+    display: grid;
+    grid-template-columns: 2rem 1fr 2rem;
+
+    > * {
+        grid-column: 2;
+    }
+
+    > .full {
+        grid-column: 1 / -1;
+    }
+
+    // @include for-mobile-layout {
+    //     grid-template-columns: 1rem 1fr 1rem;
+    // }
+
+
+    // @include for-wide-layout {
+    //     grid-template-columns:
+    //         minmax(2rem, 1fr)
+    //         minmax(auto, $break-wide)
+    //         minmax(2rem, 1fr);
+    // }
+}
+
+.layout-w-contacts{
+    display:grid;
+    grid-template-columns:2rem 4fr 4rem 1fr;
+    >* :not(.contact-list){
+        grid-column: 2;
+    }
+
+    .contact-list{
+        grid-column:4;
+    }
+}
+
+// .card-grid {
+//     display: grid;
+//     grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
+//     grid-gap: 16px;
+//     // grid-auto-flow: dense;
+
+//     grid-auto-rows: 200px;
+// }
+

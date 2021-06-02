@@ -1,0 +1,29 @@
+@import '../../../assets/styles/setup/mixins';
+
+.contact-list{
+    list-style: none;
+    padding-inline-start:0;
+    width: 280px;
+
+    .add-btn{
+      @include contact-list-item;
+      cursor: pointer;
+      .plus-sign {        
+        @include inner-list-item-el;  
+        font-size: 40px;
+      }
+      
+    }
+    
+    .contact-filter{
+        @include contact-list-item;
+          .fa-search {
+          @include inner-list-item-el;  
+            font-size: 25px;
+            padding-left: 13px;
+            
+          } 
+      }
+      
+    
+}

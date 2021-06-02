@@ -1,0 +1,40 @@
+.details-container{
+    padding:3% ;
+    border-radius: 10px;
+    background-color: #96b0dd3b;
+    padding-bottom:40px;
+    width:100%;
+
+    .contact-details{
+        padding-top: 20px;
+        width:100%; 
+
+        img{
+            width:170px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            background-color:rgb(22,11,26);
+        }
+       
+    }
+
+    .action-btns>*{
+        margin-left:12px
+    }
+
+    .caroussel-arrow{
+        background-color: #ffffffb3;
+        color: black;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+    }
+    
+}
+
+.details-container>*{
+width:100%
+}
+
+
+
