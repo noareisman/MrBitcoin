@@ -9,6 +9,6 @@
             <p>E-mail: {{user.email}}</p>
             <p>Phone: {{user.phone}}</p>
         </div>
-        <button class="add-contact-btn" (click)="addToContactList(user)">Add contact</button>    
+        <button *ngIf="currUser" class="add-contact-btn" (click)="addToContactList(user)">Add contact</button>    
     </div>
 </article>

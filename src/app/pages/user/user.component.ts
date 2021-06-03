@@ -43,7 +43,9 @@ export class UserComponent implements OnInit {
     this.userMovesSubscription= this.moveService.userMoves$
     .subscribe(moves=>{
       console.log('user:',this.user.fullname, 'moves',moves)
-      this.moves=moves
+      this.moves = moves.filter((move) => {
+        return (move.to._id === this.user._id|| move.from._id === this.user._id)})
+      
     }
    )
     

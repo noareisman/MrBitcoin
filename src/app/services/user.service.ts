@@ -43,6 +43,8 @@ export class UserService {
   private _userMoves$ = new BehaviorSubject<Move[]>([])
   public userMoves$ = this._userMoves$.asObservable()
 
+  currContactToUpdate:User
+
   error = new Subject<string>()
 
   defaultUserCredentials: Credentials = {
@@ -120,6 +122,22 @@ export class UserService {
       this._currUser$.next(this.user)//NEEDED????????
     })
   }
+  updateContactBalance(amount,user) {
+    if (user){
+      user.coins += amount
+      console.log(user);
+      
+      this._updateUser(user).subscribe()
+    }
+  }
+  // updateContactBalance(amount,contact) {
+  //    return// in case a new user was added to contact list with out a real user registered to the app by those details
+  //   this.getUserById(contact._id).subscribe(user=>{
+  //     user.coins += amount
+  //     this.currContactToUpdate=user
+  //   })
+  //   this._updateUser(user).subscribe()})
+  // }
 
   public getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.BASE_URL)

@@ -21,7 +21,6 @@ export class User {
     public password:string='',
     public fullname:string='',
     public coins: number=0,
-    public moves:Array<Move>=[],
     public contactList:Array<Contact>=[]
     ) {
   }

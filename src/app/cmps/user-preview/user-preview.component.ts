@@ -1,4 +1,5 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input,OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Contact } from 'src/app/models/contact.model';
 import { User } from 'src/app/models/user.model';
 import { ContactListService } from 'src/app/services/contact-list.service';
@@ -12,8 +13,12 @@ import { UserService } from 'src/app/services/user.service';
 export class UserPreviewComponent implements OnInit {
   @Input() user:User
   constructor(
-    private contactListService:ContactListService
+    private contactListService:ContactListService,
+    private userService:UserService
   ) { }
+
+  currUser:User=null
+  userSubscription:Subscription
 
   addToContactList(user){
     const contactToAdd={
@@ -28,7 +33,16 @@ export class UserPreviewComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.userSubscription=this.userService.currUser$.subscribe(
+      user=>this.currUser=user
+    )
     
+  }
+
+  ngOnDestroy(){
+    if (this.userSubscription) {
+      this.userSubscription.unsubscribe()
+    }
   }
 
 }

@@ -21,8 +21,8 @@ export class TransferFundComponent implements OnInit {
 
   amount:number
   user:User
-  // userSubscription:Subscription
-  // moveSubscription:Subscription
+  contactUserSubscription:Subscription
+  contactUser:User=null
   // lastMove:Move
 
   async onTransfer() {
@@ -41,22 +41,33 @@ export class TransferFundComponent implements OnInit {
       amount:this.amount
     }
     console.log(move);
+    // let contactUser=(this.contact._id.includes("localId"))? this.userService.getUserById().subscri
     
     this.moveService.saveMove(move).subscribe(move=>{
-      // this.lastMove=move
-      console.log('returned move',move);
+      console.log('returned move',move)
       this.userService.updateUserBalance(move.amount)
+      this.userService.updateContactBalance(move.amount,this.contactUser)
       this.moveService.updateUserMoves(this.user._id)
+      
     })
+
     this.transferEvent.emit()
   }
-
+  
   ngOnInit(): void {
     this.user=this.userService.user
+    if(!this.contact._id.includes("localId")){
+      this.contactUserSubscription=this.userService.getUserById(this.contact._id)
+      .subscribe(contactUser=>
+        this.contactUser=contactUser
+      )
+    }
   }
 
   ngOnDestroy() {
-    // this.userSubscription.unsubscribe()
+    if(this.contactUserSubscription){
+      this.contactUserSubscription.unsubscribe()
+    }
   }
 
 }
