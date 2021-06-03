@@ -9,6 +9,7 @@ import { Credentials } from '../models/credentials.model';
 import { catchError, filter, tap, toArray } from 'rxjs/operators';
 import { MoveService } from './move.service';
 import { Move } from '../models/move.model';
+import { HttpParams } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,9 @@ export class UserService {
 
   private _users$ = new BehaviorSubject<User[]>([])
   public users$ = this._users$.asObservable()
+
+  private _filteredUsers$ = new BehaviorSubject<User[]>([])
+  public filteredUsers$ = this._filteredUsers$.asObservable()
 
   private _filterBy$ = new BehaviorSubject({ term: '' })
   public filterBy$ = this._filterBy$.asObservable()
@@ -136,24 +140,58 @@ export class UserService {
 
   public setFilter(filterBy) {
     this._filterBy$.next(filterBy)
+    console.log(this._filterBy$);
+    
     this.getFilteredUsers()
   }
 
-  public getFilteredUsers() {
-    this.getUsers()
-      .subscribe((users) => {
-        const filterBy = this._filterBy$.getValue()
-        console.log(users);
+  // public getFilteredUsers() {
+  //   this.getUsers()
+  //   .subscribe((users) => {
+  //     const filterBy = this._filterBy$.getValue()
+  //     console.log(users);
 
-        // const filteredUsers = this._filter(users, filterBy.term)
-        // this._users$.next(this._sort(filteredUsers))
-        this._users$.next(users)
+  //     // const filteredUsers = this._filter(users, filterBy.term)
+  //     // this._users$.next(this._sort(filteredUsers))
+  //     this._users$.next(users)
 
-      }, error => this.error.next(error.message))
+  //   }, error => this.error.next(error.message))
 
+  // }
+
+
+  // public getFilteredUsers(): Observable<User[]> {
+  //   const filterBy = this._filterBy$.getValue()
+  //   if (!filterBy) {
+  //     this.getUsers()
+  //   } else {
+  //     const filterBy = this._filterBy$.getValue()
+  //     const options = { params: new HttpParams().set('fullname', filterBy.term) }
+  //     return this.http.get<User[]>(this.BASE_URL, options)
+  //       .pipe(
+  //         tap((users) => console.log('fetched users:',users)),
+  //         catchError(this._handleError<User[]>('getUsers', []))
+  //       )
+  //   }
+  // }
+  public getFilteredUsers(): any{
+    const filterBy = this._filterBy$.getValue()
+    console.log('filterBy value',filterBy);
+    
+    if (!filterBy) {
+      this.getUsers()
+      .subscribe(users=>this._filteredUsers$.next(users))
+    } else {
+      const options = { params: new HttpParams().set('fullname', filterBy.term) }
+      this.http.get<User[]>(this.BASE_URL, options)
+        .pipe(
+          tap((users) => console.log('fetched users:',users)),
+          catchError(this._handleError<User[]>('getUsers', []))
+        )
+        .subscribe(users=>this._filteredUsers$.next(users))
+    }
   }
-
-
+  
   private _filter(users, term = '') {
     term = term.toLocaleLowerCase()
     return users.filter(user => {

@@ -48,7 +48,6 @@ export class ContactDetailsComponent implements OnInit {
     await this.contactListService.removeContact(this.contact._id)
     await this.contactListService.getFilteredContacts()
     this.router.navigateByUrl('/main/user')
-      
   }
 
   

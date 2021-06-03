@@ -16,6 +16,7 @@ export class UserSearchComponent implements OnInit {
 
   onSetFilter(){
     this.userService.setFilter(this.filterBy)
+    
   }
 
   ngOnInit(): void {
@@ -27,5 +28,4 @@ export class UserSearchComponent implements OnInit {
   ngOnDestroy():void{
     this.subscription.unsubscribe()
   }
-
 }

@@ -23,8 +23,11 @@ export class UserListComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.getFilteredUsers()
-    this.subscription=this.userService.users$
-    .subscribe(users=>this.users=users)
+    this.subscription=this.userService.filteredUsers$
+    .subscribe(users=>{
+      this.users=users
+      console.log(users)}
+      )
   }
 
   ngOnDestroy():void{
