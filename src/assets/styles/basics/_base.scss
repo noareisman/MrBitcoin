@@ -14,8 +14,10 @@ html {
 body {
     margin: 0;
     background-color: $clr2;
-
-
+    background-size: 100%;
+    background-image: url(../../imgs/space2.jpg);
+    
+    
     &::-webkit-scrollbar {
         width: 10px;
         height: 10px;
@@ -34,6 +36,16 @@ body {
     }
 }
 
+body:after{
+    position:fixed;
+    content:"";
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:#110615d7;
+    z-index:-1;
+}
 h1,
 h2,
 h3,
@@ -84,5 +96,13 @@ button {
     border-image:none;
     border-radius: 4px;
     padding:0.35em 1em;
+    
+}
 
+@media screen and (max-width:500px) {
+    body{
+
+        background-image: url(../../imgs/space1.jpg);
+        background-size:200% ;
+    }
 }

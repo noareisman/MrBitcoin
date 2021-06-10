@@ -1,0 +1,23 @@
+.layout-wo-contacts{
+    display:none;
+}
+@media screen and (max-width:500px) {
+    .layout-w-contacts{
+        display:none;
+    }
+    .layout-wo-contacts{
+        display:flex;
+    .floating-menu{
+        z-index:3;
+        position:fixed;
+        right:0;
+        .mobile-slide-button{
+            width:45px;    
+            height:45px;
+            border-radius: 50%;    
+        }
+    }
+    }
+
+
+}

@@ -5,7 +5,10 @@ import { mergeMap, switchMap } from 'rxjs/operators'
 import { Contact } from 'src/app/models/contact.model';
 import { ContactService } from 'src/app/services/contact.service';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { UserService } from 'src/app/services/user.service';
 import { Move } from 'src/app/models/move.model';
 import { User } from 'src/app/models/user.model';
@@ -30,7 +33,10 @@ export class ContactDetailsComponent implements OnInit {
   error: string
 
   faEdit = faEdit
+  faTimes = faTimes
   faTrashAlt = faTrashAlt
+  faChevronRight=faChevronRight
+  faChevronLeft=faChevronLeft
 
 
   constructor(

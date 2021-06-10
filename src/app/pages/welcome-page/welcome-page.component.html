@@ -1,33 +1,22 @@
-<section class="homepage main-layout">
-    <h1>Welcome to Mister Bitcoin!</h1>
-    <div class="homepage-container flex space-between">
-        <div *ngIf="!isLoggedin" class="txt">
-            <div>
-                <h2>Explore Mister Bitcoin freely with a Demo User</h2>
-                <p>No registration needed</p>
+<section class="homepage flex column">
+        <h1 class="align-start">Welcome to Mister Bitcoin!</h1>
+        <div class="homepage-container flex space-between">
+            <div class="flex column space-between">
+            <div *ngIf="!isLoggedin" >
+                    <h2>Explore Mister Bitcoin freely with a Demo User</h2>
+                    <p>No registration needed</p>
             </div>
-            <div class="flex center">
-                <button (click)="login()">Explore MrBitcoin!</button>
+            <div *ngIf="isLoggedin && user.username!=='Demo User'">
+                    <h2>Hello {{user.username}}!</h2>
+                    <p>Explore Mister Bitcoin</p>
             </div>
+            <div *ngIf="isLoggedin && user.username==='Demo User'" >
+                    <h2>You are currently loggedin with a Demo User</h2>
+                    <p>Explore Mister Bitcoin freely</p>
+            </div>
+            <img class="narrow-view center" src="../../../assets/imgs/homepage.svg" alt="">
+            <button (click)="login()">Explore MrBitcoin!</button>
         </div>
-        <div *ngIf="isLoggedin && user.username!=='Demo User'" class="txt">
-            <div>
-                <h2>Hello {{user.username}}!</h2>
-                <p>Explore Mister Bitcoin</p>
-            </div>
-            <div class="flex center">
-                <button (click)="login()">Explore MrBitcoin!</button>
-            </div>
+            <img class="wide-view" src="../../../assets/imgs/homepage.svg" alt="">
         </div>
-        <div *ngIf="isLoggedin && user.username==='Demo User'" class="txt">
-            <div>
-                <h2>You are currently loggedin with a Demo User</h2>
-                <p>Explore Mister Bitcoin freely</p>
-            </div>
-            <div class="flex center">
-                <button (click)="login()">Explore MrBitcoin!</button>
-            </div>
-        </div>
-        <img src="../../../assets/imgs/homepage.svg" alt="">
-    </div>
 </section>

@@ -1,10 +1,17 @@
 @import '../../../assets/styles/setup/variables';
-
+:host{
+  width:100%;
+}
+.mobile-screen{
+  display:none;
+}
 .app-header {
     align-items: center;
-    padding: 14px 40px;
-    background-color: $clr1;
-    margin-bottom: 50px;
+    padding: 14px 2rem;
+    background-color: #260e30;
+    width:100%;
+    position:fixed;
+    z-index: 3;
     
     h1 {
       color: rgb(255, 196, 0);
@@ -27,3 +34,42 @@
       color: rgb(255, 196, 0);
     }
   }
+
+@media screen and (max-width:500px) {
+  .app-header{
+    position:fixed;
+    padding: 14px 1rem;
+    .wide-screen{
+      display: none;
+    }
+    .mobile-screen{
+      display: flex;
+      button{
+        background-color: transparent;
+        padding:10px;
+        border-radius: none;
+      }
+    }
+
+    .mobile-dropdown{
+      position:fixed;
+      top:70px;
+      right:0;
+      background-color: rgba(48, 47, 48, 0.801);
+      z-index: 5;
+      // margin-left:0;
+      padding:5px;
+      height:100%;
+      width:40%;
+      ul{
+        width:100%;
+        li{
+          margin-left:0;
+          padding:10px 25px;
+          border-bottom: 1px solid rgb(177, 177, 177);
+        }
+      }
+
+    }
+  }
+}

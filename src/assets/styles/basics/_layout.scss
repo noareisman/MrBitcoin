@@ -1,7 +1,7 @@
 .main-layout {
     display: grid;
-    grid-template-columns: 2rem 1fr 2rem;
-
+    grid-template-columns:minmax(2rem,1fr) minmax(auto,1200px) minmax( 2rem,1fr);
+    place-items:center;
     > * {
         grid-column: 2;
     }
@@ -10,17 +10,6 @@
         grid-column: 1 / -1;
     }
 
-    // @include for-mobile-layout {
-    //     grid-template-columns: 1rem 1fr 1rem;
-    // }
-
-
-    // @include for-wide-layout {
-    //     grid-template-columns:
-    //         minmax(2rem, 1fr)
-    //         minmax(auto, $break-wide)
-    //         minmax(2rem, 1fr);
-    // }
 }
 
 .layout-w-contacts{
@@ -35,12 +24,5 @@
     }
 }
 
-// .card-grid {
-//     display: grid;
-//     grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
-//     grid-gap: 16px;
-//     // grid-auto-flow: dense;
 
-//     grid-auto-rows: 200px;
-// }
 

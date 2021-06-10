@@ -5,3 +5,17 @@
         <contact-list [contacts]="contacts"></contact-list>
     </div>
 </section>
+
+<section class="bitcoin-app layout-wo-contacts">
+    <!-- <div class="flex column floating-menu"> -->
+        <!-- <button class="mobile-slide-button" (click)="onOpenSearchMembers()"><fa-icon class="fa-search" [icon]="faSearch"></fa-icon></button>
+        <button class="mobile-slide-button" (click)="onOpenContactList()"><fa-icon class="fa-search" [icon]="faAddressBook"></fa-icon></button> -->
+        <!-- <div *ngIf="isOpenContactList" class="contact-list flex column align-center">
+            <h1>Contacts</h1>
+            <contact-list [contacts]="contacts"></contact-list>
+        </div> -->
+    <!-- </div> -->
+    <!-- <router-outlet *ngIf="!isOpenContactList" ></router-outlet> -->
+    <router-outlet></router-outlet>
+    
+</section>

@@ -1,31 +1,7 @@
-<section class="login">
+<!-- <section class="login"> -->
 
   <span *ngIf="isLoading"></span>
-  <span *ngIf="errorMsg">{{errorMsg}}</span>
-    <!-- <form (ngSubmit)="login()" #loginForm="ngForm">
-        
-        <section *ngIf="isDemoUser && isLoggedin;else realLogin">
-            <h1>You are loggedin with Demo User!</h1>
-            <p>Explore MisterBitcoin freely - No registration needed</p>
-            <button (click)="switchUser()">Sign in with real user</button>
-        </section>
-
-        <ng-template #realLogin>
-            <input type="text" name="name" placeholder="Enter username" [(ngModel)]='credentials.username' class="form-control">
-            <input type="password" name="password" placeholder="Enter password" [(ngModel)]='credentials.password' class="form-control">
-            <div *ngIf="!isLoggedin;else logout">
-                <button (click)="login()">Login</button>
-                <button (click)="signUp()">Sign up</button>
-            </div>
-            <ng-template #logout>
-                <button (click)="switchUser()">Logout</button>
-            </ng-template>
-            <button (click)="useDemoUser()">Login with Demo-User</button>
-            <p>No registration needed!</p>
-          </ng-template>
-        </form> -->
-    <!-- <form #loginForm="ngForm" (ngSubmit)="login()" > -->
-    
+  <!-- <span *ngIf="errorMsg">{{errorMsg}}</span>     -->
     <form *ngIf="!user" #loginForm="ngForm" (submit)="login()" >
           <div class="login-page">
             <h2 class="login-page-headlines">Login</h2>
@@ -62,8 +38,7 @@
       </form>
       <!-- <ng-template #logout> -->
         <section *ngIf="user">
-
           <button type="button" (click)="logout()">Logout</button>
         </section>
       <!-- </ng-template> -->
-</section>
+<!-- </section> -->

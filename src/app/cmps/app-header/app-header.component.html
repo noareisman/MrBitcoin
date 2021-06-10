@@ -3,8 +3,8 @@
     <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
         <h1>Mister Bitcoin</h1>
     </a>
-    <a routerLink="/users">Connect with other MrBitcoin members</a>
-    <nav>
+    <a class="search-connections wide-screen" routerLink="/users">Connect with other MrBitcoin members</a>
+    <nav class="wide-screen">
         <ul class="flex">
             <li *ngIf="user">
                 <a routerLink="/main/user" routerLinkActive="active">{{user.fullname}}</a>
@@ -16,7 +16,33 @@
                 <a routerLink="/about" routerLinkActive="active">About</a>
             </li>
             <li>
-                <a routerLink="/login" routerLinkActive="active">Login</a>
+                <a *ngIf="!user" routerLink="/login" routerLinkActive="active">Login</a>
+                <a *ngIf="user" routerLink="/login" (click)="logout()" routerLinkActive="active">Logout</a>
+            </li>
+        </ul>   
+    </nav>
+  
+    <nav class="mobile-screen">
+        <button class="mobile-slide-button" (click)="onOpenSearchMembers()"><fa-icon class="fa-search" [icon]="faSearch"><a routerLink="/users"></a></fa-icon></button>
+        <button *ngIf="user" class="mobile-slide-button" (click)="onOpenContactList()"><fa-icon class="fa-addressBook" [icon]="faAddressBook"><a routerLink="/main/contactList"></a></fa-icon></button>
+        <!-- <button *ngIf="user" class="mobile-slide-button"><fa-icon class="fa-addressBook" [icon]="faAddressBook"><a routerLink="/main/contactList"></a></fa-icon></button> -->
+        <button class="mobile-slide-button" (click)="onOpenDropdown()"><fa-icon class="fa-ellipsis-v" [icon]="faEllipsisV"></fa-icon></button>
+        
+    </nav>    
+    <nav *ngIf="isOpenDropdown" class="mobile-screen mobile-dropdown">
+        <ul class="flex column">
+            <li *ngIf="user">
+                <a routerLink="/main/user" (click)="onOpenDropdown()" routerLinkActive="active">Home</a>
+            </li>
+            <!-- <li>
+                <a routerLink="/statistics" routerLinkActive="active">Statistics</a>
+            </li> -->
+            <li>
+                <a routerLink="/about" (click)="onOpenDropdown()" routerLinkActive="active">About</a>
+            </li>
+            <li>
+                <a *ngIf="!user" routerLink="/login" (click)="onOpenDropdown()" routerLinkActive="active">Login</a>
+                <a *ngIf="user" routerLink="/login" (click)="logout()" routerLinkActive="active">Logout</a>
             </li>
         </ul>   
     </nav>

@@ -1,0 +1,83 @@
+.login-page {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .login-signup-supperline {
+        width: 28%;
+        padding: 5px 3px 0 3px;
+    }
+    input {
+        outline: none !important;
+        min-width: 250px;
+        width: 30%;
+        max-width: 400px;
+        padding: 9px 12px;
+        margin-bottom: 7px;
+        border-radius: 8px;
+        height: 2.8rem;
+        border-width:1px;
+    }
+    
+    .btn{
+        border-radius: 8px;
+        padding: 9px 12px;
+        font-size: 18px;
+        min-width: 250px;
+        width: 30%;
+        max-width: 400px;
+    }
+    p {
+        color: red;
+        padding-top: 1%;
+        margin: 0 auto;
+    }
+    .middle-page{
+        justify-content: center;
+        margin: 12% 25% 2% 25%;
+    }
+    .login-page-headlines{
+        margin-bottom: 2%;
+        margin-top: 2%;
+    }
+    
+    p {
+        color: red;
+        padding-top: 1%;
+        margin: 0 auto;
+    }
+    
+    .toggle-btn{
+        margin: 40px;
+    }
+
+    .guest-login{
+        align-self: center;
+        margin-top: 10px;
+    }
+    
+    .login-btn{
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .login-page{
+        height: 100%;
+        padding-bottom: 10px;
+        // padding-top: 10px;
+        // margin-top: 10px;
+        margin-top: -10px;
+        .btn{
+            font-size: 16px;
+        }
+        .special-btn{
+            padding: 9px !important;
+        }
+        input{
+            height:2.4rem;
+        }
+    }
+    
+}
+

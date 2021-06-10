@@ -1,0 +1,14 @@
+:host{
+    // margin-top:50px;
+    padding:50px;
+    padding-top: 0;
+    max-width:1100px;
+}
+
+
+@media screen and (max-width:500px) {
+    :host{
+        padding:20px;
+        padding-top: 0;
+    }
+}

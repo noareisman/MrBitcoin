@@ -3,7 +3,7 @@
     <p *ngIf="error">{{error}}</p>
     <div class="details-container flex column align-center">
       <div class="flex space-between">
-        <a routerLink="/main/user">X</a>
+        <a routerLink="/main/user"><fa-icon [icon]="faTimes"></fa-icon></a>
         <span class="action-btns">
           <a [routerLink]="['/main/edit',contactId]"><fa-icon [icon]="faEdit"></fa-icon></a>
           <span (click)="onRemoveContact()"><fa-icon [icon]="faTrashAlt"></fa-icon></span>
@@ -13,9 +13,9 @@
         <h1>{{contact.name}}</h1>
         <!-- <h1>{{(contact$|async).name}}</h1> -->
         <div class="flex align-center space-between w-full">
-          <button class="caroussel-arrow" (click)="switchContact(1)"><</button>
+          <button class="caroussel-arrow" (click)="switchContact(1)"><fa-icon [icon]="faChevronLeft"></fa-icon></button>
           <img [src]="contactImg" alt="contact" />
-          <button class="caroussel-arrow" (click)="switchContact(-1)">></button>
+          <button class="caroussel-arrow" (click)="switchContact(-1)"><fa-icon [icon]="faChevronRight"></fa-icon></button>
         </div>
         <div class="details flex column center">
           <p>Email: {{contact.email}}</p>

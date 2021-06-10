@@ -1,3 +1,4 @@
 <form class="contact-filter">
-    <input type="text" id="search-contact" name="term" [(ngModel)]="filterBy.term" placeholder="Connect with other MrBitcoin members" (ngModelChange)="onSetFilter()">
+    <input type="text" id="search-contact" name="term" [(ngModel)]="filterBy.term" placeholder="Search MrBitcoin members" (ngModelChange)="onSetFilter()"> 
+    <fa-icon class="fa-search" [icon]="faSearch"></fa-icon>
 </form>
