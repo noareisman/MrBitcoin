@@ -13,7 +13,7 @@ import { StatisticsComponent } from './pages/statistics/statistics.component';
 import { UserComponent } from './pages/user/user.component';
 import { ContactResolverService } from './services/contact-resolver.service';
 import { UserListComponent } from './pages/user-list/user-list.component';
-import {ContactListComponent} from './cmps/contact-list/contact-list.component';
+import { MobileContactListComponent } from './pages/mobile-contact-list/mobile-contact-list.component';
 
 const routes: Routes = [
   { path: 'about', component: AboutComponent },
@@ -26,7 +26,7 @@ const routes: Routes = [
       { path: 'edit/:id', component: ContactEditComponent },
       { path: 'edit', component: ContactEditComponent },
       { path: 'user', component: UserComponent },
-      { path: 'contactList', component: ContactListComponent}
+      { path: 'mobileContactList', component: MobileContactListComponent}
     ]
   },
   { path: '', component: WelcomePageComponent },

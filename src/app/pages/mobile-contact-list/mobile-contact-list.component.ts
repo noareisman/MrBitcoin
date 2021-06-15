@@ -1,19 +1,17 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ContactListService } from 'src/app/services/contact-list.service';
 import { Subscription } from 'rxjs';
 import { Contact } from 'src/app/models/contact.model'
-import { ContactListService } from 'src/app/services/contact-list.service';
-// import { faSearch } from '@fortawesome/free-solid-svg-icons';
-// import { faAddressBook } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
-  selector: 'bitcoin-app',
-  templateUrl: './bitcoin-app.component.html',
-  styleUrls: ['./bitcoin-app.component.scss']
+  selector: 'mobile-contact-list',
+  templateUrl: './mobile-contact-list.component.html',
+  styleUrls: ['./mobile-contact-list.component.scss']
 })
-export class BitcoinAppComponent implements OnInit {
+export class MobileContactListComponent implements OnInit {
 
   constructor(
-    private contactListService: ContactListService,
+    private contactListService:ContactListService
   ) { }
 
   contacts: Contact[]
@@ -27,6 +25,8 @@ export class BitcoinAppComponent implements OnInit {
   // onOpenSearchMembers(){
   //   this.router.navigateByUrl('/users')
   // }
+
+
 
   ngOnInit(): void {
     // this.isOpenContactList=false

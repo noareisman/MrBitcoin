@@ -117,6 +117,7 @@ export class UserService {
 
   updateUserBalance(amount) {
     this.user.coins -= amount
+    console.log('updating user coins:',this.user,amount);
     this._updateUser(this.user).subscribe(updatedUser => {
       this.user = updatedUser
       this._currUser$.next(this.user)//NEEDED????????
@@ -125,7 +126,7 @@ export class UserService {
   updateContactBalance(amount,user) {
     if (user){
       user.coins += amount
-      console.log(user);
+      console.log('updating contact coins:',user,amount);
       
       this._updateUser(user).subscribe()
     }
@@ -195,6 +196,7 @@ export class UserService {
   public getFilteredUsers(): any{
     const filterBy = this._filterBy$.getValue()
     console.log('filterBy value',filterBy);
+    console.log('filterBy.term',filterBy.term);
     
     if (!filterBy) {
       this.getUsers()
@@ -206,9 +208,10 @@ export class UserService {
           tap((users) => console.log('fetched users:',users)),
           catchError(this._handleError<User[]>('getUsers', []))
         )
-        .subscribe(users=>this._filteredUsers$.next(users))
+        .subscribe(users=>this._filteredUsers$.next(this._sort(users)))
     }
   }
+
   
   private _filter(users, term = '') {
     term = term.toLocaleLowerCase()

@@ -6,7 +6,6 @@ import { User } from 'src/app/models/user.model';
 import { Credentials } from 'src/app/models/credentials.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
-import { UserPipe } from '../user.pipe';
 
 @Component({
   selector: 'login',

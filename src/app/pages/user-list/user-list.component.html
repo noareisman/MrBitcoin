@@ -3,6 +3,7 @@
 <!-- <div class="user-list-container"> -->
     <ul class="user-list-cards clean-list">
         <li *ngFor="let user of users; Index as idx; trackBy:trackByFn">
+            <!-- <user-preview [user]="user" [loggedinUser]="loggedinUser"></user-preview> -->
             <user-preview [user]="user"></user-preview>
         </li>
     </ul>

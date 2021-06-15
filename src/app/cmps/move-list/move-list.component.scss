@@ -43,8 +43,12 @@
     }
     
     @media screen and (max-width:500px) {
+        .no-moves{
+            margin-left: 10px;
+        }
         .moves-list{
-            padding: 0;
+            padding: 10px 0px;
+
             
             .move-list-titles{
                 padding-left: 1em;

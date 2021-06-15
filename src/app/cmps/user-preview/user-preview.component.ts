@@ -18,7 +18,9 @@ export class UserPreviewComponent implements OnInit {
   ) { }
 
   currUser:User=null
+  // loggedinUser:any
   userSubscription:Subscription
+  isContact:boolean=false
 
   addToContactList(user){
     const contactToAdd={
@@ -33,10 +35,14 @@ export class UserPreviewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userSubscription=this.userService.currUser$.subscribe(
-      user=>this.currUser=user
-    )
-    
+    this.userSubscription=this.userService.currUser$
+    .subscribe(user=>{
+      this.currUser=user
+      if(user){
+        const contactListIds=user.contactList.map(contact=>{return contact._id})
+        this.isContact=contactListIds.includes(this.user._id) 
+      }
+      })     
   }
 
   ngOnDestroy(){
@@ -44,5 +50,4 @@ export class UserPreviewComponent implements OnInit {
       this.userSubscription.unsubscribe()
     }
   }
-
 }

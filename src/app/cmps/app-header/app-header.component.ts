@@ -27,7 +27,7 @@ export class AppHeaderComponent implements OnInit {
   isOpenDropdown=false;
   
   onOpenContactList(){
-    this.router.navigateByUrl('/main/contactList')
+    this.router.navigateByUrl('/main/mobileContactList')
   }
   onOpenSearchMembers(){
     this.router.navigateByUrl('/users')

@@ -27,7 +27,7 @@ export class TransferFundComponent implements OnInit {
 
   async onTransfer() {
     if (this.amount <= 0) return
-    if (this.user.coins < this.amount) return alert('You dont have coins')    
+    if (this.user.coins < this.amount) return alert('You don\'t have coins')    
     const move = {
       to: {
         fullname: this.contact.name,
@@ -42,16 +42,15 @@ export class TransferFundComponent implements OnInit {
     }
     console.log(move);
     // let contactUser=(this.contact._id.includes("localId"))? this.userService.getUserById().subscri
-    
-    this.moveService.saveMove(move).subscribe(move=>{
+    await this.moveService.saveMove(move).subscribe(move=>{
       console.log('returned move',move)
       this.userService.updateUserBalance(move.amount)
       this.userService.updateContactBalance(move.amount,this.contactUser)
       this.moveService.updateUserMoves(this.user._id)
-      
     })
-
+    
     this.transferEvent.emit()
+    this.amount=null
   }
   
   ngOnInit(): void {

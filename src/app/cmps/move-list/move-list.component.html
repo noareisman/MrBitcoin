@@ -2,7 +2,7 @@
     <h3>Your Recent Transactions:</h3>
     <div class="moves-list">
         <div *ngIf="!moves.length; else moveList">
-            <div className="no-moves">(No moves to show)</div>
+            <div class="no-moves">(No moves to show)</div>
         </div>
         <ng-template #moveList>
             <ul class="clean-list">

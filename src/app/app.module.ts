@@ -24,11 +24,11 @@ import { LoginComponent } from './pages/login/login.component';
 import { TransferFundComponent } from './cmps/transfer-fund/transfer-fund.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
-import { UserPipe } from './pages/user.pipe';
 import { UserComponent } from './pages/user/user.component';
 import { UserListComponent } from './pages/user-list/user-list.component';
 import { UserPreviewComponent } from './cmps/user-preview/user-preview.component';
 import { UserSearchComponent } from './cmps/user-search/user-search.component';
+import { MobileContactListComponent } from './pages/mobile-contact-list/mobile-contact-list.component';
 
 @NgModule({
   declarations: [
@@ -50,11 +50,11 @@ import { UserSearchComponent } from './cmps/user-search/user-search.component';
     TransferFundComponent,
     PageNotFoundComponent,
     ErrorPageComponent,
-    UserPipe,
     UserComponent,
     UserListComponent,
     UserPreviewComponent,
-    UserSearchComponent
+    UserSearchComponent,
+    MobileContactListComponent,
   ],
   imports: [
     BrowserModule,

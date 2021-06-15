@@ -44,7 +44,19 @@ export class MoveService {
   public updateUserMoves(userId){
     this.getUserMoves(userId)
     .subscribe((moves)=>{
-      this._userMoves$.next(moves)
+      this._userMoves$.next(this._sort(moves))
+    })
+  }
+
+  private  _sort(moves: Move[]): Move[] {
+    return moves.sort((a, b) => {
+      if (a.at > b.at) {
+      return -1;
+    }
+    if (a.at < b.at) {
+        return 1;
+      }
+      return 0;
     })
   }
 
