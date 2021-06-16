@@ -15,7 +15,13 @@ export class AuthService {
     private http:HttpClient,
     private userService:UserService
     ) { }
-  BASE_URL = 'http://localhost:3030/api/auth/'//development - back
+
+  BASE_URL = '/api/auth/'//פ\PRODUCTION
+  // BASE_URL = 'http://localhost:3030/api/auth/'//development - back
+  // BASE_URL = process.env.NODE_ENV === 'production'
+  //   ? '/api/auth/'
+  //   : 'http://localhost:3030/api/auth/'//development - back
+
   public loggedinUser:any=null
   // {
   //   _id: '123',

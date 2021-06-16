@@ -22,7 +22,8 @@ export class UserService {
     private moveService: MoveService
   ) { }
 
-  BASE_URL = 'http://localhost:3030/api/user/'//development - back
+  BASE_URL = '/api/user/'//PRODUCTION
+  // BASE_URL = 'http://localhost:3030/api/user/'//development - back
 
   private USER_KEY: string = 'user';
   // private user: User = this._loadUser(this.USER_KEY, this.defaultUser)

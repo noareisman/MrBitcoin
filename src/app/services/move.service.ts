@@ -15,7 +15,12 @@ export class MoveService {
     private http: HttpClient,
   ) { }
 
-  BASE_URL = 'http://localhost:3030/api/move/'//development - back
+  
+  BASE_URL = '/api/move/'//PRODUCTION
+  // BASE_URL = 'http://localhost:3030/api/move/'//development - back
+  // BASE_URL = process.env.NODE_ENV === 'production'
+  // ? '/api/move/'
+  // : 'http://localhost:3030/api/move/'//development - back
 
   private _userMoves$ = new BehaviorSubject<Move[]>([])
   public userMoves$ = this._userMoves$.asObservable()
