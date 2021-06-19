@@ -9,10 +9,16 @@ html {
     // font-family: Montserrat;
     line-height: 1.6;
     color: $clr5;
+    width:100%
 }
 
 body {
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
     margin: 0;
+    width:100%;
     background-color: $clr2;
     background-size: 100%;
     background-image: url(../../imgs/space2.jpg);
@@ -101,8 +107,11 @@ button {
 
 @media screen and (max-width:500px) {
     body{
-
+        width:100%;
         background-image: url(../../imgs/space1.jpg);
         background-size:200% ;
+        // position:fixed;
+    left:0;
+    right:0;
     }
 }

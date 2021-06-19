@@ -1,5 +1,5 @@
 :host{
-width:100%;
+width:100wh;
 }
 .main-container{
     min-height: 100vh;
@@ -8,12 +8,13 @@ width:100%;
         flex:1;
         width:100%;
         margin-top: 100px;
+        margin-bottom: 20px;
     }
 }
 
 @media screen and (max-width:500px) {
-    
     .main-layout{
-        grid-template-columns: 1rem 1fr 1rem;
+        grid-template-columns: 0.7rem minmax(260px,1fr) 0.7rem;
+        
     }
 }

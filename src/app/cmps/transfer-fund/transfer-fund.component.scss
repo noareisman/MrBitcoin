@@ -16,3 +16,9 @@ h4{
     padding-top: 5px;
 }
 }
+
+@media screen and (max-width:380px) {
+    input{
+        width:135px;
+    }
+}

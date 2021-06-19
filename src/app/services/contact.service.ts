@@ -16,8 +16,8 @@ export class ContactService {
     private alertService: AlertService
   ) { }
 
-  BASE_URL = '/api/contact/'//PRODUCTION
-  // BASE_URL = 'http://localhost:3030/api/contact/'//development - back
+  // BASE_URL = '/api/contact/'//PRODUCTION
+  BASE_URL = 'http://localhost:3030/api/contact/'//development - back
   // BASE_URL = '../../assets/data-front.json'//development - front
 
     // BASE_URL = process.env.NODE_ENV === 'production'

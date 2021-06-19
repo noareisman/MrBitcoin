@@ -14,3 +14,16 @@
 
   
 }
+
+@media screen and (max-width:500px) {
+    
+    .user-list-cards{
+        width: 100%;
+        display: grid;
+        // grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
+        grid-template-columns: repeat(auto-fill, 98%);
+        gap: 10px;
+        place-content: center;
+      
+    }
+}

@@ -16,7 +16,7 @@ export class AuthService {
     private userService:UserService
     ) { }
 
-  BASE_URL = '/api/auth/'//פ\PRODUCTION
+  BASE_URL = '/api/auth/'//PRUDUCTION
   // BASE_URL = 'http://localhost:3030/api/auth/'//development - back
   // BASE_URL = process.env.NODE_ENV === 'production'
   //   ? '/api/auth/'

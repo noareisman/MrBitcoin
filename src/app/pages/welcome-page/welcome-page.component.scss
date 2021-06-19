@@ -1,5 +1,5 @@
 :host{
-    height:90vh;
+    height: 80vh;
 }
 .homepage{
     // min-height: 80vh;
@@ -18,7 +18,7 @@
         }
         button{
             font-size: 150%;
-            margin-bottom: 30px;
+            // margin-bottom: 30px;
             width: fit-content;
         }
     }
@@ -56,21 +56,30 @@
 }
 
 @media screen and (max-width:500px) {
+    :host{
+        width:100%;
+    }
     h1{
         font-size: 36px !important;
     }
-
+    
     button{
         margin-top: 20px;
     }
-
+    
     h2{
         font-size: 20px;
     }
-
+    
     p{
         font-size: 12px;
     }
 
+    
+}
+@media screen and (max-width:400px) {
+:host{
+    height: 90vh;
+}
 
 }
