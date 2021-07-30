@@ -16,8 +16,8 @@ export class MoveService {
   ) { }
 
   
-  BASE_URL = '/api/move/'//PRODUCTION
-  // BASE_URL = 'http://localhost:3030/api/move/'//development - back
+  // BASE_URL = '/api/move/'//PRODUCTION
+  BASE_URL = 'http://localhost:3030/api/move/'//development - back
   // BASE_URL = process.env.NODE_ENV === 'production'
   // ? '/api/move/'
   // : 'http://localhost:3030/api/move/'//development - back

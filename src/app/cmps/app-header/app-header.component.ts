@@ -17,7 +17,7 @@ export class AppHeaderComponent implements OnInit {
   constructor(
     private userService:UserService,
     private router: Router,
-    private authService:AuthService
+    private authService:AuthService,
   ) { }
   user:User=null
   

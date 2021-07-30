@@ -22,13 +22,12 @@ export class UserService {
     private moveService: MoveService
   ) { }
 
-  BASE_URL = '/api/user/'//PRODUCTION
-  // BASE_URL = 'http://localhost:3030/api/user/'//development - back
+  // BASE_URL = '/api/user/'//PRODUCTION
+  BASE_URL = 'http://localhost:3030/api/user/'//development - back
 
-  private USER_KEY: string = 'user';
   // private user: User = this._loadUser(this.USER_KEY, this.defaultUser)
   // private user: User = this._loadUser(this.USER_KEY)
-  public user: User = null
+  public user: User = this.getLoggedinUser()
   private _currUser$ = new BehaviorSubject<User>(this.user)//service workes with this
   public currUser$ = this._currUser$.asObservable()//component subscribes to this
 
@@ -56,7 +55,11 @@ export class UserService {
   setCurrUser(user) {
     this.user = user
     this._currUser$.next(user)
-    this.utilService.saveToStorage(this.USER_KEY, this.user)
+  }
+
+  getLoggedinUser(){
+    let user = JSON.parse(sessionStorage.getItem('loggedinUser'));
+    return user
   }
 
   // _loadUser(key): User {

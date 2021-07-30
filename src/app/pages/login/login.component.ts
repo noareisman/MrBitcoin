@@ -70,11 +70,16 @@ export class LoginComponent implements OnInit {
   }
 
   async login() {
-    this.subIsLoggedin = await this.authService.login(this.loginCredentials)
+    try{
+      this.subIsLoggedin = await this.authService.login(this.loginCredentials)
       .subscribe(() => {
         this.isLoggedin = true
         this.router.navigateByUrl('/main/user')
       })
+    }catch(err){
+      console.log('login cmp: login() got:',err);
+      
+    }
   }
 
   async logout() {

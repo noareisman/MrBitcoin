@@ -16,95 +16,19 @@ export class AuthService {
     private userService:UserService
     ) { }
 
-  BASE_URL = '/api/auth/'//PRUDUCTION
-  // BASE_URL = 'http://localhost:3030/api/auth/'//development - back
+  // BASE_URL = '/api/auth/'//PRUDUCTION
+  BASE_URL = 'http://localhost:3030/api/auth/'//development - back
   // BASE_URL = process.env.NODE_ENV === 'production'
   //   ? '/api/auth/'
   //   : 'http://localhost:3030/api/auth/'//development - back
 
-  public loggedinUser:any=null
-  // {
-  //   _id: '123',
-  //   username: 'Demo User',
-  //   fullname: 'Demo User',
-  //   coins: 100,
-  //   password: '123',
-  //   moves: [
-  //     {
-  //       toId: "d99e3u2ih329",
-  //       to: "Moshiko",
-  //       at: 2652712571,
-  //       amount: 1
-  //     },
-  //     {
-  //       toId: "5a566402abb3146207bc4ec5",
-  //       to: "Floyd Rutledge",
-  //       at: 2652702571,
-  //       amount: 2
-  //     },
-  //     {
-  //       toId: "5a566402ed1cf349f0b47b4d",
-  //       to: "Rachel Lowe",
-  //       at: 2652701571,
-  //       amount: 3
-  //     },
-  //     {
-  //       toId: "5a566402abb3146207bc4ec5",
-  //       to: "Floyd Rutledge",
-  //       at: 2652700571,
-  //       amount: 1
-  //     },
-  //     {
-  //       toId: "5a56640269f443a5d64b32ca",
-  //       to: "Ochoa Hyde",
-  //       at: 2652700471,
-  //       amount: 2
-  //     },
-  //     {
-  //       toId: "5a5664025f6ae9aa24a99fde",
-  //       to: "Hallie Mclean",
-  //       at: 2652700071,
-  //       amount: 6
-  //     },
-  //     {
-  //       toId: "5a56640252d6acddd183d319",
-  //       to: "Parsons Norris",
-  //       at: 2652612571,
-  //       amount: 2
-  //     },
-  //     {
-  //       toId: "5a566402a6499c1d4da9220a",
-  //       to: "Shana Pope",
-  //       at: 2652512571,
-  //       amount: 2
-  //     },
-  //     {
-  //       toId: "5a566402abce24c6bfe4699d",
-  //       to: "Dominique Soto",
-  //       at: 2652412571,
-  //       amount: 3.5
-  //     },
-  //     {
-  //       toId: "5a566402abce24c6bfe4699d",
-  //       to: "Dominique Soto",
-  //       at: 2652312571,
-  //       amount: 2
-  //     },
-  //     {
-  //       toId: "5a566402abb3146207bc4ec5",
-  //       to: "Floyd Rutledge",
-  //       at: 2652212571,
-  //       amount: 3
-  //     }
-  //   ]
-  // }
+  public loggedinUser:any=this.userService.getLoggedinUser()
 
-  
   login(credentials:Credentials){
     return this.http.post<User>(this.BASE_URL+'login',credentials)
     .pipe(map(user => {
-      // store user details and basic auth credentials in local storage to keep user logged in between page refreshes
-      // localStorage.setItem('user', JSON.stringify(user));
+      // store user details and basic auth credentials in session storage to keep user logged in between page refreshes
+      sessionStorage.setItem('loggedinUser', JSON.stringify(user));
       console.log('got User:',user);
       this.loggedinUser=user
       this.userService.setCurrUser(user);
